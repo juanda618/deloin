@@ -1,0 +1,17 @@
+{
+  "name": "deloin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Juan david Vicuña Salazar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fast-csv": "^4.1.1",
+    "mysql": "^2.18.1"
+  }
+}

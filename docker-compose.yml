@@ -1,0 +1,24 @@
+version: '3.5'
+services:
+  vicu-mysql:
+    image: mysql
+    volumes:
+      - ./scripts/reporte.sql:/docker-entrypoint-initdb.d/reporte.sql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always    
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: reporte
+
+  vicu-node:
+    build: .
+    image: vicu-node:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./files/:/usr/app/files/
+    depends_on:
+      - vicu-mysql
+    environment:
+      - ENVIRONMENT=development
+      - PORT=3000
